@@ -47,6 +47,10 @@ class App extends Component {
 
   filteredContacts = () => {
     const { filter, contacts } = this.state;
+    // console.log(contacts);
+    if (contacts === '') {
+      return;
+    }
 
     const normalizeFilter = filter.toLowerCase();
 
@@ -67,7 +71,10 @@ class App extends Component {
     return (
       <div className={css.formContainer}>
         <h1 className={css.title}>Phonebook</h1>
-        <ContactForm addContact={this.handleAddContact} />
+        <ContactForm
+          contacts={this.state.contacts}
+          addContact={this.handleAddContact}
+        />
 
         <h2 className={css.title}>Contacts</h2>
         <Filter value={this.state.filter} onChange={this.changeFilter} />
