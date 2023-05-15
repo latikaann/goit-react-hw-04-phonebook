@@ -54,7 +54,7 @@ export default function App() {
       <h2 className={css.title}>Contacts</h2>
       <Filter value={filter} onChange={changeFilter} />
       <ContactList
-        contacts={filteredContacts}
+        contacts={filteredContacts()}
         onDeleteContact={deleteContact}
       />
     </div>
